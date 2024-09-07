@@ -1,0 +1,6 @@
+colabcode
+fastapi
+uvicorn
+python-multipart
+pyngrok
+kaggle
