@@ -1,2 +1,2 @@
-# AI-Powered-Fraud-Detection-in-Financial-Transactions
-<img src="image.png">
+# AI-Powered-Fraud-Detection-in-Financial-Transaction
+<img src="/frontend/image.png">
