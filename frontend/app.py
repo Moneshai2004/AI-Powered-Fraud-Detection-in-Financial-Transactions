@@ -2,11 +2,23 @@ import streamlit as st
 import json
 import requests as re
 
+# Inject custom CSS to increase sidebar width
+st.markdown(
+    """
+    <style>
+    .css-1r8vw6r { /* This class name might change, you may need to inspect and update it */
+        width: 300px !important; /* Increase the width to your desired size */
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 # Title of the app
-st.title("AI-Powered Fraud Detection in Financial Transactions - YAR TECH PROJECT")
+st.title("AI-Powered Fraud Detection in Financial Transactions")
 
 # Displaying the image with increased size
-st.image("image.png", width=800)  # Adjust the width as needed to increase the size
+st.image("image.png", width=700)  # Adjust the width as needed to increase the size
 
 # Project Description
 st.write("""
@@ -19,6 +31,15 @@ st.sidebar.header('Input Features of The Transaction')
 sender_name = st.sidebar.text_input("Input Sender ID")
 receiver_name = st.sidebar.text_input("Input Receiver ID")
 step = st.sidebar.slider("Number of Hours it took the Transaction to complete:")
+st.sidebar.write("""
+### Instructions:
+- **Cash In (0)**: Money being deposited into an account.
+- **Cash Out (1)**: Money being withdrawn from an account.
+- **Debit (2)**: Direct payment from an account, typically using a debit card.
+- **Payment (3)**: Payment made towards a bill or invoice.
+- **Transfer (4)**: Moving money between accounts or to another person.
+""")
+
 types = st.sidebar.selectbox("Enter Type of Transfer Made:", (0, 1, 2, 3, 4))
 x = ''
 if types == 0:
@@ -56,11 +77,11 @@ if st.button("Detection Result"):
     - Receiver ID: {receiver_name}
     - Number of Hours it took to complete: {step}
     - Type of Transaction: {x}
-    - Amount Sent: {amount}
-    - Sender Previous Balance Before Transaction: {oldbalanceorg}
-    - Sender New Balance After Transaction: {newbalanceorg}
-    - Recipient Balance Before Transaction: {oldbalancedest}
-    - Recipient Balance After Transaction: {newbalancedest}
+    - Amount Sent: ${amount}
+    - Sender Previous Balance Before Transaction: ${oldbalanceorg}
+    - Sender New Balance After Transaction: ${newbalanceorg}
+    - Recipient Balance Before Transaction: ${oldbalancedest}
+    - Recipient Balance After Transaction: ${newbalancedest}
     - System Flag Fraud Status: {isflaggedfraud}
     """)
 

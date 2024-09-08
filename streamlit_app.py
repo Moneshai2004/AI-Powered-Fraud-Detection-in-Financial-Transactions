@@ -3,7 +3,7 @@ import json
 import requests as re
 
 # Title of the app
-st.title("AI-Powered Fraud Detection in Financial Transactions - YAR TECH PROJECT")
+st.title("AI-Powered Fraud Detection in Financial Transactions")
 
 # Displaying the image with increased size
 st.markdown("""
